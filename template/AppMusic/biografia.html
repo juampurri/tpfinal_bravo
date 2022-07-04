@@ -1,0 +1,50 @@
+{% extends 'AppMusic/padre.html' %} {% load static %} {% block titulo %}
+Biografia {% endblock %} {% block contenidoquecambia %}
+
+<h2>Datos de la banda:</h2>
+
+{% for biografias in biografia %}
+
+<a href="{% url 'biografia_view' biografias.id %}"
+  >{{ biografias }}
+  <a href="{% url 'biografia_delete' biografias.id %}"> Borrar Biografia</a>
+  <a href="{% url 'biografia_update' biografias.id %}"> Modificar Biografia</a>
+  <br />
+
+  {% endfor %}
+  <li class="btn btn-primary">
+    <a href="{% url 'biografia_add' %}">Agregar Biografia</a>
+  </li>
+
+  {% endblock %} {% block up %}
+
+  <div id="upcoming" class="upcoming">
+    <div class="container-fluid padding_left3">
+      <div class="row display_boxflex">
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+          <div class="box_text">
+            <div class="titlepage">
+              <h2>Encontrá lo que buscás</h2>
+            </div>
+            <p>
+              Encontrá acá a tu banda favorita y enterate de todos sus
+              proyectos, estaras atento a las nuevas bandas emergentes y a
+              nuevos sonidos! Publica tu musica y comparte tus proyectos!
+            </p>
+            <a href="Javascript:void(0)">Read More</a>
+          </div>
+        </div>
+
+        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 border_right">
+          <div class="upcomimg">
+            <figure>
+              <img src="{% static 'AppMusic/images/rh.jpg' %}" alt="#" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</a>
